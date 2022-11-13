@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyRecipesApp.Views.RecipeEntryPage"
+             >
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label  
+                Text="{Binding Name}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <!-- Layout children vertically -->
+        <StackLayout Margin="20">
+            <Editor Placeholder="Dish Name"
+                Text="{Binding Name}"
+                HeightRequest="50" />
+            <Editor Placeholder="Creator"
+                Text="{Binding CreatedBy}"
+                HeightRequest="50" />
+            <Editor Placeholder="Ingredients"
+                Text="{Binding Ingredients}"
+                HeightRequest="200" />
+            <Editor Placeholder="Recipe steps"
+                Text="{Binding StepsNotes}"
+                HeightRequest="200" />
+            <Editor Placeholder="Image URL"
+                Text="{Binding ImageUrl}"
+                HeightRequest="50" />
+            <!-- Layout children in two columns -->
+            <Grid ColumnDefinitions="*,*">
+                <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
